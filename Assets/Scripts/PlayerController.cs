@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
             canAttack = false;
             StartCoroutine(waitToAttack());
             hitCollider.SetActive(true);
+            animator.SetTrigger("Attacking");
         }
     }
 
