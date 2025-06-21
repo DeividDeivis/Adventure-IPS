@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4370848905834522999}
   m_Layer: 0
   m_Name: Hit Collider
-  m_TagString: Untagged
+  m_TagString: Hit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 8360531565068647718}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -267,6 +267,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9dfbc54e0b217a4da97bee282a9fed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAlive: 1
+  playerLifes: 3
   _sprite: {fileID: 6808022906049104298}
   animator: {fileID: 6118510272360624394}
   moveSpeed: 2
