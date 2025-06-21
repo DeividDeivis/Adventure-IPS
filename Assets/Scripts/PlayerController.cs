@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private bool isAlive = true;
+    [SerializeField] private int playerLifes = 3;
+
     [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private Animator animator;
 
@@ -15,6 +19,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject hitCollider;
     private bool canAttack = true;
 
+    public static Action OnPlayerHit;
+    public static Action OnPlayerDead;
+
     private InputSystem_Actions _Inputs;
     
     void Awake()
@@ -25,6 +32,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isAlive) return;
+
         //Vector2 moveVector = _Inputs.Player.Move.ReadValue<Vector2>();
         //transform.position += new Vector3(moveVector.x, moveVector.y, 0) * moveSpeed * Time.deltaTime;
 
@@ -62,5 +71,23 @@ public class PlayerController : MonoBehaviour
     public void FinishAttack() 
     {
         hitCollider.SetActive(false);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+            PlayerReceiveDamage();          
+    }
+
+    private void PlayerReceiveDamage()
+    {
+        playerLifes--;
+        OnPlayerHit?.Invoke();
+
+        if (playerLifes <= 0)
+        {
+            isAlive = false;
+            OnPlayerDead?.Invoke();
+        }
     }
 }
