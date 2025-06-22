@@ -174,3 +174,4 @@ MonoBehaviour:
   _sprite: {fileID: 1669607546296701522}
   animator: {fileID: 299341250715346893}
   moveSpeed: 1
+  coinPrefab: {fileID: 4864250047501631918, guid: f3015ac02d8e33845a7780cd5af296b0, type: 3}
