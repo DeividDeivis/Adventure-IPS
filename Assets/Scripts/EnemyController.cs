@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float moveSpeed = 1;
     private Transform playerTransform;
 
-    //public static Action<Vector2> OnEnemyDead;
+    public static Action OnEnemyDead;
     [SerializeField] private GameObject coinPrefab;
 
     void Awake()
@@ -43,7 +43,7 @@ public class EnemyController : MonoBehaviour
         if (collision.tag == "Hit")
         {
             Debug.Log("Enemy Defeat!");
-            //OnEnemyDead?.Invoke(transform.position); 
+            OnEnemyDead?.Invoke(); 
             Instantiate(coinPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class GameController : MonoBehaviour
 {
@@ -10,16 +11,26 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private UIController _UI;
     [SerializeField] private List<EnemyController> _EnemiesInLevel = new List<EnemyController>();
+
+    [Header("Cut Scene")]
+    [SerializeField] private bool showCutScene = false;
+    [SerializeField] private int enemiesToKill = 0;
+    [SerializeField] private PlayableDirector _Director;
+    [SerializeField] private List<GameObject> obstacles;
+    [SerializeField] private List<ParticleSystem> destroyRocksParticles;
+    private int currentRock = 0;
    
     void Awake()
     {
         PlayerController.OnPlayerDead += PlayerDead;
         CoinController.OnCoinObtained += PlayerObtainCoin;
+        EnemyController.OnEnemyDead += CheckCompleteQuest;
     }
 
     private void Start()
     {
         _EnemiesInLevel = FindObjectsByType<EnemyController>(FindObjectsSortMode.InstanceID).ToList();
+        enemiesToKill = _EnemiesInLevel.Count;
 
         _Points = 0;
         _UI.AddCoins(_Points);
@@ -39,5 +50,21 @@ public class GameController : MonoBehaviour
     {
         _Points += 25;
         _UI.AddCoins(_Points);
+    }
+
+    private void CheckCompleteQuest() 
+    {
+        if (!showCutScene) return;
+
+        enemiesToKill--;
+        if (enemiesToKill == 0)
+            _Director.Play();
+    }
+
+    public void DestroyRocks() 
+    {
+        obstacles[currentRock].SetActive(false);
+        destroyRocksParticles[currentRock].Play();
+        currentRock++;
     }
 }
