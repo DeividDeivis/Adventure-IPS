@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private Animator animator;
+
+    [Header("Mobile Settings")]
+    [SerializeField] private Joystick mobileJoystick;
+    [SerializeField] private Button attackButton;
+    private bool virtualAttackButton = false;
 
     [Header("Move System")]
     [SerializeField] private float moveSpeed = 3;
@@ -27,6 +33,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         _Inputs = new InputSystem_Actions();
+        attackButton.onClick.AddListener(() => virtualAttackButton = false);
     }
 
     // Update is called once per frame
@@ -38,7 +45,12 @@ public class PlayerController : MonoBehaviour
         //transform.position += new Vector3(moveVector.x, moveVector.y, 0) * moveSpeed * Time.deltaTime;
 
         // Move Input
-        Vector2 moveVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 moveVector = Vector2.zero;
+#if !UNITY_ANDROID
+        moveVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+#else
+        moveVector = mobileJoystick.Direction;
+#endif
         transform.position += new Vector3(moveVector.x, moveVector.y, 0) * moveSpeed * Time.deltaTime;
 
         // Sprite flip
@@ -52,7 +64,9 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("InMove", moving);
 
         // Attack Input
-        if (Input.GetMouseButtonDown(0) && canAttack) 
+        bool virtualAttackButton = false;
+
+        if (Input.GetMouseButtonDown(0) || virtualAttackButton && canAttack) 
         {
             canAttack = false;
             StartCoroutine(waitToAttack());
