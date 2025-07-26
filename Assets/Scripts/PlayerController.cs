@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private bool isAlive = true;
     [SerializeField] private int playerLifes = 3;
+    public int _lifes => playerLifes;
 
     [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private Animator animator;
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         _Inputs = new InputSystem_Actions();
-        attackButton.onClick.AddListener(() => virtualAttackButton = false);
+        attackButton.onClick.AddListener(() => virtualAttackButton = true);
     }
 
     // Update is called once per frame
@@ -103,5 +104,11 @@ public class PlayerController : MonoBehaviour
             isAlive = false;
             OnPlayerDead?.Invoke();
         }
+    }
+
+    public void SetData(Vector2 savedPos, int savedLifes) 
+    {
+        transform.position = savedPos;
+        playerLifes = savedLifes;
     }
 }

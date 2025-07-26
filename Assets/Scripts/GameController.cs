@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
 {
     [Header("Game State Info")]
     [SerializeField] private int _Points = 0;
+    public int _playerPoints => _Points;
 
     [SerializeField] private UIController _UI;
     [SerializeField] private List<EnemyController> _EnemiesInLevel = new List<EnemyController>();
@@ -34,6 +35,8 @@ public class GameController : MonoBehaviour
 
         _Points = 0;
         _UI.AddCoins(_Points);
+
+        SetLoadData();
     }
 
     private void PlayerDead()
@@ -66,5 +69,16 @@ public class GameController : MonoBehaviour
         obstacles[currentRock].SetActive(false);
         destroyRocksParticles[currentRock].Play();
         currentRock++;
+    }
+
+    private void SetLoadData() 
+    {
+        if (DataManager.instance.ExistSaveData()) 
+        {
+            PlayerController player = FindFirstObjectByType<PlayerController>();
+
+            _Points = DataManager.instance.gameData.playerGold;
+            player.SetData(DataManager.instance.gameData.playerPosition, DataManager.instance.gameData.playerLifes);
+        }
     }
 }
