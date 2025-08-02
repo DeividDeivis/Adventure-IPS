@@ -47,6 +47,9 @@ public class PlayerController : MonoBehaviour
 
         // Move Input
         Vector2 moveVector = Vector2.zero;
+
+        // #define se usa principalmente para definir símbolos de preprocesador para controlar la compilación condicional. 
+        // Directivas de preprocesador de C#.
 #if !UNITY_ANDROID
         moveVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 #else
