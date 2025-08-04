@@ -15,10 +15,11 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
-        StartGameBtn.onClick.AddListener(LoadScene);
-        //StartGame.onClick.AddListener(()=> LoadSceneAsync("GameScene"));
+        //StartGameBtn.onClick.AddListener(LoadScene);
+        //StartGameBtn.onClick.AddListener(()=> LoadSceneAsync("GameScene"));
+        StartGameBtn.onClick.AddListener(() => LoadSceneAsync("SaveLoadScene"));
 
-    #region Setting Continue
+        #region Setting Continue
         bool existSaveData = DataManager.instance.ExistSaveData();
         ContinueGameBtn.gameObject.SetActive(existSaveData);
 
@@ -70,7 +71,7 @@ public class MenuController : MonoBehaviour
     {
         DataManager.instance.LoadGameData();
 
-        LoadSceneAsync("GameScene");
-        //LoadSceneAsync("SaveLoadScene");
+        //LoadSceneAsync("GameScene");
+        LoadSceneAsync("SaveLoadScene");
     }
 }

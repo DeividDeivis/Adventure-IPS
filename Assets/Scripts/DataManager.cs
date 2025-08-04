@@ -29,14 +29,16 @@ public class DataManager : MonoBehaviour
         gameData.playerGold = FindFirstObjectByType<GameController>()._playerPoints;
 
 
-        SaveSystem.SaveData(gameData);
-        //SaveSystem.SaveDataBinary(gameData);
+        //SaveSystem.SaveDataPP(gameData);
+        //SaveSystem.SaveData(gameData);
+        SaveSystem.SaveDataBinary(gameData);
     }
 
     public void LoadGameData() 
     {
-        gameData = SaveSystem.LoadData();
-        //gameData = SaveSystem.LoadDataBinary();
+        //gameData = SaveSystem.LoadDataPP();
+        //gameData = SaveSystem.LoadData();
+        gameData = SaveSystem.LoadDataBinary();
     }
 
     public bool ExistSaveData() 

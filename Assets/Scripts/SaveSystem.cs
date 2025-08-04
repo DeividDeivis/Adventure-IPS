@@ -35,7 +35,10 @@ public static class SaveSystem
     {
         string dataToJson = JsonUtility.ToJson(dataToSave);
         PlayerPrefs.SetString("Game Data", dataToJson);
+        PlayerPrefs.SetInt("Player Life", dataToSave.playerLifes);
         Debug.Log("DATA SAVED");
+
+        //PlayerPrefs.DeleteKey("Game Data");
     }
 
     public static GameData LoadDataPP()
@@ -98,9 +101,9 @@ public static class SaveSystem
 
         string path;
         if (binary) 
-            path = Application.persistentDataPath + "Save_Data.save";
+            path = Application.persistentDataPath + "/Save_Data.save";
         else
-            path = Application.persistentDataPath + "Save_Data.json";
+            path = Application.persistentDataPath + "/Save_Data.json";
 
         return path;
     }
@@ -108,11 +111,9 @@ public static class SaveSystem
     public static bool HaveData() 
     {
         bool data = false;
-        if (File.Exists(GetPath()))
-            data = true;
-        if(PlayerPrefs.HasKey("Game Data"))
-            data = true;
-        if (File.Exists(GetPath(true)))
+        if (File.Exists(GetPath()) ||
+            PlayerPrefs.HasKey("Game Data") ||
+            File.Exists(GetPath(true)))
             data = true;
 
         return data;
