@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Move System")]
     [SerializeField] private float moveSpeed = 3;
+    [SerializeField] private float stepsTime = .3f;
+    private float currentStep = 0;
+    [SerializeField] private AudioSource moveSource;
 
     [Header("Attack System")]
     [SerializeField] private float attackTime = 1;   
@@ -66,6 +69,19 @@ public class PlayerController : MonoBehaviour
         // Animator parameter update
         bool moving = moveVector.x != 0 || moveVector.y != 0 ? true : false;
         animator.SetBool("InMove", moving);
+
+        if (moving)
+        {
+            if (currentStep > 0)
+                currentStep -= Time.deltaTime;
+            else 
+            {
+                moveSource.Play();
+                currentStep = stepsTime;
+            }
+        }
+        else
+            currentStep = stepsTime;
 
         // Attack Input
         bool virtualAttackButton = false;

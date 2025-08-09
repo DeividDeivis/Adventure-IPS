@@ -9,15 +9,19 @@ public class MenuController : MonoBehaviour
     [SerializeField] private Button StartGameBtn;
     [SerializeField] private Button ContinueGameBtn;
 
+    [SerializeField] private AudioClip bgMusic;
+    [SerializeField] private AudioSource _MusicSource;
+
+    [SerializeField] private AudioClip buttonSfx;
+    [SerializeField] private AudioSource _SfxSoure;
+
     public TextMeshProUGUI progressText; 
     public Slider progressBar;
     public GameObject loadContainer;
 
     private void Start()
     {
-        //StartGameBtn.onClick.AddListener(LoadScene);
-        //StartGameBtn.onClick.AddListener(()=> LoadSceneAsync("GameScene"));
-        StartGameBtn.onClick.AddListener(() => LoadSceneAsync("SaveLoadScene"));
+        StartGameBtn.onClick.AddListener(StartGame);
 
         #region Setting Continue
         bool existSaveData = DataManager.instance.ExistSaveData();
@@ -67,11 +71,22 @@ public class MenuController : MonoBehaviour
     }
     #endregion
 
+    public void StartGame() 
+    {
+        //LoadScene();
+        //LoadSceneAsync("GameScene");
+        LoadSceneAsync("SaveLoadScene");
+
+        _SfxSoure.PlayOneShot(buttonSfx);
+    }
+
     public void ContinueGame() 
     {
         DataManager.instance.LoadGameData();
 
         //LoadSceneAsync("GameScene");
         LoadSceneAsync("SaveLoadScene");
+
+        _SfxSoure.PlayOneShot(buttonSfx);
     }
 }

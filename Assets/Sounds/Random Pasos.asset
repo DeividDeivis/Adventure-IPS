@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &-9144857370897702298
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Pasos-004_{-9144857370897702298}
+  m_AudioClip: {fileID: 8300000, guid: c5a5e2b25b1bc3945af65d72ed750cec, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-8639667066981163900
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Pasos-006_{-8639667066981163900}
+  m_AudioClip: {fileID: 8300000, guid: 4986268e41f6dcb449a0abdb5a522b53, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-2843636255950975378
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Pasos-001_{-2843636255950975378}
+  m_AudioClip: {fileID: 8300000, guid: 5682837cbae80f046aa3ac391355b0b8, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-1866006269802154071
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Pasos-008_{-1866006269802154071}
+  m_AudioClip: {fileID: 8300000, guid: bcc099be926356a42b7c1728d612f818, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-50181559753666113
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Pasos-003_{-50181559753666113}
+  m_AudioClip: {fileID: 8300000, guid: cb6ea0914814dc7478958aa1810b5e51, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &981475412206392191
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Pasos-010_{981475412206392191}
+  m_AudioClip: {fileID: 8300000, guid: 67e191ece93b19d4bbd5e246aaf34387, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &3113079017092163127
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Pasos-005_{3113079017092163127}
+  m_AudioClip: {fileID: 8300000, guid: 3805a9d5ffcd5e349ad428f39dc22ca0, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &3180081869085460038
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Pasos-002_{3180081869085460038}
+  m_AudioClip: {fileID: 8300000, guid: 7d1ea13bbc5d86e4d943de1611e13f4b, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &3581288722473985590
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Pasos-009_{3581288722473985590}
+  m_AudioClip: {fileID: 8300000, guid: c2951cded0358e84e886c5a792a5317b, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Random Pasos
+  m_Volume: 0
+  m_Pitch: 0
+  m_AutomaticTriggerTime: 0
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: 0, y: 0}
+  m_PitchRandomizationRange: {x: 0, y: 0}
+  m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: -2843636255950975378}
+  - {fileID: 3180081869085460038}
+  - {fileID: -50181559753666113}
+  - {fileID: -9144857370897702298}
+  - {fileID: 3113079017092163127}
+  - {fileID: -8639667066981163900}
+  - {fileID: 7130206989268740571}
+  - {fileID: -1866006269802154071}
+  - {fileID: 3581288722473985590}
+  - {fileID: 981475412206392191}
+  m_AvoidRepeatingLast: 0
+  m_PlaybackMode: 1
+  m_TriggerMode: 0
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 2
+  m_VolumeRandomizationEnabled: 0
+  m_PitchRandomizationEnabled: 0
+  m_AutomaticTriggerTimeRandomizationEnabled: 0
+  m_LoopCountRandomizationEnabled: 0
+--- !u!1233149941 &7130206989268740571
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Pasos-007_{7130206989268740571}
+  m_AudioClip: {fileID: 8300000, guid: 9aa5d923837f7c546b82325179443a97, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
