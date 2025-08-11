@@ -13290,10 +13290,6 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8360531565068647718, guid: 65df9a9075615054fa4c93db85163f66, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8360531565068647718, guid: 65df9a9075615054fa4c93db85163f66, type: 3}
       propertyPath: attackButton
       value: 
       objectReference: {fileID: 687062554}
@@ -13301,10 +13297,6 @@ PrefabInstance:
       propertyPath: mobileJoystick
       value: 
       objectReference: {fileID: 1306202545}
-    - target: {fileID: 8360531565068647718, guid: 65df9a9075615054fa4c93db85163f66, type: 3}
-      propertyPath: useMobileControllers
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9205914980508033781, guid: 65df9a9075615054fa4c93db85163f66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

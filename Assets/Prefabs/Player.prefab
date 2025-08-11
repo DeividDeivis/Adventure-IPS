@@ -276,7 +276,8 @@ MonoBehaviour:
   attackButton: {fileID: 0}
   moveSpeed: 2
   stepsTime: 0.3
-  moveSource: {fileID: 0}
+  moveSource: {fileID: 5795096569185429518}
+  moveSfx: {fileID: 8300000, guid: 5682837cbae80f046aa3ac391355b0b8, type: 3}
   attackTime: 1
   hitCollider: {fileID: 840258957623195919}
 --- !u!82 &5795096569185429518
@@ -288,7 +289,7 @@ AudioSource:
   m_GameObject: {fileID: 6231773863260912650}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 4846777398626786538, guid: a10639d42bbf4be42b241a10f4851b82, type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 6418180475301049370, guid: 64707083f65e7914fab18b9208ef3cdd, type: 2}
   m_PlayOnAwake: 0

@@ -23,6 +23,11 @@ public class MenuController : MonoBehaviour
     {
         StartGameBtn.onClick.AddListener(StartGame);
 
+        _MusicSource.clip = bgMusic;
+        _MusicSource.loop = true;
+        _MusicSource.volume = 1f;
+        _MusicSource.Play();
+
         #region Setting Continue
         bool existSaveData = DataManager.instance.ExistSaveData();
         ContinueGameBtn.gameObject.SetActive(existSaveData);
