@@ -33,11 +33,25 @@ public class PlayerController : MonoBehaviour
     public static Action OnPlayerDead;
 
     private InputSystem_Actions _Inputs;
-    
+    [SerializeField] private Vector2 moveVector = Vector2.zero;
+
     void Awake()
     {
         _Inputs = new InputSystem_Actions();
-        attackButton.onClick.AddListener(() => virtualAttackButton = true);
+        _Inputs.Player.Attack.started += OnAttack;
+        //_Inputs.Player.Move.performed += OnMove;
+
+        //attackButton?.onClick.AddListener(() => virtualAttackButton = true);
+    }
+
+    private void OnEnable()
+    {
+        _Inputs.Player.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _Inputs.Player.Disable();
     }
 
     // Update is called once per frame
@@ -45,18 +59,15 @@ public class PlayerController : MonoBehaviour
     {
         if (!isAlive) return;
 
-        //Vector2 moveVector = _Inputs.Player.Move.ReadValue<Vector2>();
-        //transform.position += new Vector3(moveVector.x, moveVector.y, 0) * moveSpeed * Time.deltaTime;
-
         // Move Input
-        Vector2 moveVector = Vector2.zero;
+        moveVector = Vector2.zero;
 
         // #define se usa principalmente para definir símbolos de preprocesador para controlar la compilación condicional. 
         // Directivas de preprocesador de C#.
 #if !UNITY_ANDROID
-        moveVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        moveVector = _Inputs.Player.Move.ReadValue<Vector2>();
 #else
-        moveVector = mobileJoystick.Direction;
+        moveVector = mobileJoystick?.Direction;
 #endif
         transform.position += new Vector3(moveVector.x, moveVector.y, 0) * moveSpeed * Time.deltaTime;
 
@@ -82,11 +93,16 @@ public class PlayerController : MonoBehaviour
         }
         else
             currentStep = stepsTime;
+    }
 
-        // Attack Input
-        bool virtualAttackButton = false;
+    public void OnMove(InputAction.CallbackContext ctx) 
+    {
+        moveVector = ctx.ReadValue<Vector2>();
+    }
 
-        if (Input.GetMouseButtonDown(0) || virtualAttackButton && canAttack) 
+    public void OnAttack(InputAction.CallbackContext ctx) 
+    {
+        if (ctx.started || virtualAttackButton && canAttack)
         {
             canAttack = false;
             StartCoroutine(waitToAttack());

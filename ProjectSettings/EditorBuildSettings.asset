@@ -15,5 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/SaveLoadScene.unity
     guid: 476726ef88e3d5d4e99d5a084c467195
   m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: a8c03562c5e00d8489266176a2696153, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
